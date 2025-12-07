@@ -1,8 +1,6 @@
-let anyName : string   = 'ali'
-anyName = 'haider' // can be reassign but can not be assign an other type of value like string or boolean
-// anyName = boolean // <= this will never work
-console.log(anyName);
-console.log(anyName.indexOf('a')); // the methods of type String will work no other will work like on this this will never have property like math
+let anyName: string = 'ali';  
+anyName = 'haider'; // Can change the name, but only to another string
+// anyName = true; // ❌ Nope! TypeScript won't let you assign a boolean here
 
-
-
+console.log(anyName);  
+console.log(anyName.indexOf('a')); // Works! String methods only, no math allowed 😎
