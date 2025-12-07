@@ -1,7 +1,7 @@
 // =====================
 // 1️⃣ `any` Type — The "I don't care" type
 // =====================
-let anyThing: any = 'ali';  // literally anything goes
+// let : any = 'ali';  // literally anything goes
 
 anyThing = false;       
 anyThing = 393;         
