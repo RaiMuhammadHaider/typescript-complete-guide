@@ -32,3 +32,13 @@ interface dog { // is ma sab properties mix ho jati ha jo k is ka faida ha
 const dogDetail : dog = {name : 'My Love' , age : 1 , bread : 'german Shaffered' , bark(){
     return 'dog Bark'
 }}
+
+
+
+// extend interface
+interface serviceDog extends dog { // in this way we can extend the properties of existing interface so we have also the properties of other once
+    job : 'guide' | 'guard'
+}
+const myDog : serviceDog = { job : 'guide', name : 'My Love' , age : 1 , bread : 'german Shaffered' , bark(){
+    return 'dog Bark'
+}}
