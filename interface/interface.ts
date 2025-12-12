@@ -1,0 +1,16 @@
+interface koiBiNameJoHmHamriTypeKaHo { // interface is use to define the shape of the object mean the object msut follow
+    name : string,
+    age : number,
+    isVaid : boolean
+}
+
+interface anyTypeName {
+    readonly id  : number // now the id can be only be read can not be reassgin 
+ employee : string,
+ age : number,
+ isMarried ?: boolean // now this one is optional  
+ anyFunctionOrMethod : ()=> string  // this one is the method that retun string 
+}
+const emplyee : anyTypeName = { id : 78979798 , age : 997979 , employee : 'haris' , anyFunctionOrMethod : ()=> {return 'funn'}} 
+emplyee.age = 884884
+// emplyee.id = 884884 // this will never allow because it is only read only property
