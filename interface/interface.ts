@@ -18,3 +18,17 @@ const emplyee : anyTypeName = { id : 78979798 , age : 997979 , employee : 'haris
 } } 
 emplyee.age = 884884
 // emplyee.id = 884884 // this will never allow because it is only read only property
+// reopening in interface
+
+interface dog {
+    name : string,
+    age : number
+}
+interface dog { // is ma sab properties mix ho jati ha jo k is ka faida ha 
+    bread : string,
+    bark() : string
+}
+
+const dogDetail : dog = {name : 'My Love' , age : 1 , bread : 'german Shaffered' , bark(){
+    return 'dog Bark'
+}}
