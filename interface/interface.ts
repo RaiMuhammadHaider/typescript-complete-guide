@@ -42,3 +42,18 @@ interface serviceDog extends dog { // in this way we can extend the properties o
 const myDog : serviceDog = { job : 'guide', name : 'My Love' , age : 1 , bread : 'german Shaffered' , bark(){
     return 'dog Bark'
 }}
+
+// multiple exted 
+
+interface company extends dog , anyTypeName { // multiple interface extended
+    company : string
+}
+const cmpy : company = {company : 'tata' , name : 'My Love' , age : 1 , bread : 'german Shaffered' , bark(){
+    return 'dog Bark'
+} , id : 78979798  , employee : 'haris' , anyFunctionOrMethod : ()=> {return 'funn'}, functionThatTakeParameter(price : number){
+    return 848 + 2 // 
+} }
+
+
+
+//  prefer to use interface instead of type alies because interface can be reopen and can be be exten like class and best approch to shaping the object
