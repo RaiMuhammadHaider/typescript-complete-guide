@@ -3,12 +3,12 @@
 // =====================
 // let : any = 'ali';  // literally anything goes
 
-anyThing = false;       
-anyThing = 393;         
-anyThing = {};          
-anyThing = [3, 4, 6, 67]; 
+// anyThing = false;       
+// anyThing = 393;         
+// anyThing = {};          
+// anyThing = [3, 4, 6, 67]; 
 
-console.log(anyThing); 
+// console.log(anyThing); 
 // anyThing is like that friend who says "I don't care, do whatever" 😎
 
 // ✅ Lesson: Use `any` only if you want TypeScript to stop nagging you.

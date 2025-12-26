@@ -7,7 +7,7 @@ const ali : [number , string , number , boolean] = [1,'car' , 4, true] // touple
 // enum 
 
 enum hamriEnum {
-    panding, // by default ys kuch kuch vakues assign krta ha
+    panding = 8, // by default ys kuch kuch vakues assign krta ha
     deliver , // If you don’t give values, TypeScript automatically gives numbers starting from 0.
     success // Enum = A feature that lets you create a group of named constant values.
 }
@@ -20,7 +20,9 @@ enum haider {
 function yes(arrow:haider) {
     return arrow = haider.left
 }
-
-function anyFUnk(koiBiParameter:hamriEnum) {
-    return koiBiParameter = hamriEnum.deliver
+function anyFUnk(koiBiParameter: hamriEnum) {
+  const myNum = koiBiParameter * hamriEnum.deliver;
+  return myNum;
 }
+
+console.log(anyFUnk(hamriEnum.panding)); // 0 * 1 = 0 // sief enum hi values ja sakti hn koi or ni like hm apni terf sy 5 ,5 3, values pass nahi kr sakty 
