@@ -14,7 +14,7 @@
     // "module": "ESNext",
     // "outDir": "./dist",
     // For nodejs:
-    // "lib": ["esnext"],
+    "lib": ["ES2021" , "DOM"],
     // "types": ["node"],
     // and npm install -D @types/node
 
