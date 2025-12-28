@@ -1,16 +1,65 @@
-console.log('i love you haider');
-const btn = document.querySelector("button") // yaha pe btn ya to koi htmlElement ho sakta ha ya yaee null ho sakta ha ager hmy pata ho or gurrenty ho k ya null nahi ho ga tu hm end pe ! laga dety hn ya confirmation hoti ha k ya null nahi ho ga ya hm phaly check kry gy aya k ya null to nahi ha 
-btn?.addEventListener("click" , ()=>{ // ?  is liya use kiya ha kahen hamra btn null to nahi ha ager to null ha tu ya yahi pe ruk jaey ga 
-    alert('Yes Clicked')
-})
+console.log("Mini Todo Project");
 
-// ! this one is call non null assertion in typeScript mean ya gurrenty ha k ya null nahi ha x
-console.log(btn);
-const p = document.querySelector("p")
-console.log(p);
+const inputBox = document.getElementById("inputBox")! as HTMLInputElement;
+const form = document.getElementById("todoFrom")! as HTMLFormElement;
+const list = document.getElementById("list")! as HTMLLIElement;
 
-// type assertion 
-// khabi khabi typeScript ko khud ko pata nahi hota is ki kon c specific type ha lakin developer ko PAta hota ha is situation ma hum typescript ko khety hn isy as a is type ki value ki terha treat kro
-const bodies : any = 'any bodey'
-const bodyy = (bodies as number).toLocaleString()
-const boody = (<number>bodies).toFixed(2) // is ko hm asy bi likh sakty hn han
+interface Todo {
+  text: string;
+  complete: boolean;
+}
+
+const getTodos = (): Todo[] => {
+  const stored = localStorage.getItem("todos");
+  return stored ? JSON.parse(stored) : [];
+};
+
+const todos: Todo[] = getTodos();
+const saveTodos = () => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
+const createTodo = (todo: Todo) => {
+  const div = document.createElement("div");
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.checked = todo.complete;
+
+  const span = document.createElement("span");
+  span.innerText = todo.text;
+
+  if (todo.complete) {
+    span.style.textDecoration = "line-through";
+  }
+
+  checkbox.addEventListener("change", () => {
+    todo.complete = checkbox.checked;
+
+    span.style.textDecoration = todo.complete
+      ? "line-through"
+      : "none";
+
+    saveTodos();
+  });
+
+  div.append(checkbox);
+  div.append(span);
+  list.append(div);
+};
+const handleSubmit = (e: SubmitEvent) => {
+  e.preventDefault();
+
+  if (inputBox.value.trim() === "") return;
+  const todo: Todo = {
+    text: inputBox.value,
+    complete: false
+  };
+  todos.push(todo);
+  saveTodos();
+  createTodo(todo);
+
+  inputBox.value = "";
+};
+
+form.addEventListener("submit", handleSubmit);
+todos.forEach(createTodo);
